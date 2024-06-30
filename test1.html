@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruction Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ecf0f1;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: left;;
+            position: relative;
+        }
+        .instructions {
+            margin-bottom: 20px;
+        }
+        .declaration {
+            margin: 20px 0;
+            color: black;
+        }
+        .declaration.red {
+            color: red;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: left;
+            justify-content: left;
+            margin-bottom: 20px;
+        }
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+        .next-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        .next-button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+    </style>
+    <script>
+        function goToTestPage() {
+            var checkbox = document.getElementById('self-declaration-checkbox');
+            var declarationText = document.getElementById('declaration-text');
+            if (checkbox.checked) {
+                window.location.href = 'test1_start.html'; // Replace with your test page URL
+            } else {
+                declarationText.classList.add('red');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <p>Read the following instructions carefully before starting the test:</p>
+            <ul>
+                <li>Close all browsers/tabs before starting the online test.</li>
+                <li> Once the exam starts, do not switch to any other window/tab. On doing so,
+                    your attempt may be considered as malpractice and your exam may get
+                    terminated</li>
+                <li>Do Not Pickup/Receive the Call during the exam if you are giving the exam
+                    on mobile. This also will be treated as changing the window</li>
+                <li>To avoid unwanted pop-ups, use of Ad Blocker is recommended.</li>
+            </ul>
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="self-declaration-checkbox">
+            <label for="self-declaration-checkbox">I have read and understood the instructions.</label>
+        </div>
+        <div id="declaration-text" class="declaration">Please check the box to proceed.</div>
+        <button class="next-button" onclick="goToTestPage()">Next</button>
+    </div>
+</body>
+</html>
